@@ -4,15 +4,18 @@ const calculos = require("./funcoes/calculos.js");
 let indices;
 let app = true;
 let tentativas = 0;
+let opcaoUsuario;
 function menu(){
     console.log(`Você deseja fazer qual operação?
     [+]Adição
     [-]Subtração
     [/]Divisão
     [X]Multiplicação
+    [%]Porcentagem
     [5]Sair
     Digite sua opção: `)
 }
+
 function verificaNum(num){
     return isNaN(num);
 }
@@ -25,37 +28,54 @@ function digiteNum(){
             return numeros;            
         }else{
             console.log("Não foi digitado um número, tente novamente: ")
-            numeros.num2 = undefined;
         };
     }else{
         console.log("Não foi digitado um número, por favor, tente novamente: ")
-        numeros.num1 = undefined;
+        return false;
     };
 }
 //-----------------------------------------------------------
 //programa "principal"
 while(app == true){
-    let opcaoUsuario = prompt(menu()).toLowerCase().trim();
+    if(!opcaoUsuario){
+     opcaoUsuario = prompt(menu()).toLowerCase().trim();
+    }
     switch(opcaoUsuario){
         case '+':
             indices = digiteNum()
-            console.log(calculos.soma(indices));
-            opcaoUsuario = undefined;
+            if(indices){
+                console.log(calculos.soma(indices));        
+                opcaoUsuario = undefined;
+            }
             break;
         case '-':
             indices = digiteNum();
-            console.log(calculos.subtracao(indices));
-            opcaoUsuario = undefined;
+            if(indices){
+                console.log(calculos.subtracao(indices));
+                opcaoUsuario = undefined;
+            }
             break;
         case '/':
             indices = digiteNum();
-            console.log(calculos.divisao(indices));
-            opcaoUsuario = undefined;
+            if(indices){
+                console.log(calculos.divisao(indices));
+                opcaoUsuario = undefined;
+            }
             break;
         case "x":
             indices = digiteNum();
-            console.log(calculos.multiplicacao(indices));
-            opcaoUsuario = undefined;
+            if(indices){
+                console.log(calculos.multiplicacao(indices));
+                opcaoUsuario = undefined;
+            }
+            break;
+        case '%':
+            console.log('O primeiro número será a "base", o segundo será a porcentagem que deseja saber (1 - 100%): ')
+            indices = digiteNum();
+            if(indices){
+                calculos.porcentagem(indices);
+                opcaoUsuario = undefined;
+            }
             break;
         case '5':
             console.log("Encerrando sistema...")
