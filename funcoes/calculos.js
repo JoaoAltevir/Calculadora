@@ -1,14 +1,17 @@
 //declaração das funções de calculo
 
-let soma = (numA, numB) => {
-    numA + numB;
-}
-let subtracao = (numA, numB) => {
-    numA - numB;
-}
-function multiplicacao(numA, numB){
-    return numA * numB;    
-}
-function divisao(numA,numB){
-    return numA / numB;
+let soma = numeros => numeros.num1 + numeros.num2;
+
+let subtracao = numeros => numeros.num1 - numeros.num2;
+
+let multiplicacao = numeros => numeros.num1 * numeros.num2;    
+
+let divisao = numeros => numeros.num1 / numeros.num2;
+
+
+module.exports = {
+    soma,
+    subtracao,
+    multiplicacao,
+    divisao,
 }
