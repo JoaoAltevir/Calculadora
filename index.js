@@ -3,7 +3,6 @@ const prompt = require("prompt-sync")();
 const calculos = require("./funcoes/calculos.js");
 let indices;
 let app = true;
-let tentativas = 0;
 let opcaoUsuario;
 function menu(){
     console.log(`Você deseja fazer qual operação?
@@ -84,7 +83,6 @@ while(app == true){
         default:
             console.log("Opção não válida tente novamente:")
             opcaoUsuario = undefined;
-            tentativas++;
     }
 }
 
