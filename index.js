@@ -1,7 +1,7 @@
 //declaração de variáveis/importações;
 const prompt = require("prompt-sync")();
 const calculos = require("./funcoes/calculos.js");
-const funcionalidades = require("./funcoes/funcionalidades.js")
+const funcionalidades = require("./funcoes/funcionalidades.js");
 let indices;
 let app = true;
 let opcaoUsuario;
